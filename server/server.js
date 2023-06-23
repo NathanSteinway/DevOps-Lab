@@ -16,7 +16,7 @@ app.use(express.static(`${__dirname}/public`))
 
 app.get('/', (req, res) => {
     rollbar.log('I am here')
-    res.status(200).sendFile(`../public/index.html`)
+    res.status(200).sendFile(`${__dirname}/../public/index.html`)
 })
 
 const port = process.env.PORT || 5050
