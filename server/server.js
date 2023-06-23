@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 5050
 
 const Rollbar = require('rollbar')
 
@@ -17,5 +16,7 @@ app.use(express.json())
 app.get('/', (req, res) => {
     rollbar.log('I am here')
 })
+
+const port = process.env.PORT || 5050
 
 app.listen(port, () => console.log(`I hate ${port} mixups`))
