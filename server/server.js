@@ -24,12 +24,12 @@ let testData = ["haha", "fight", "spite", "heehee"]
 app.get('/test', (req, res) => {
 
     try {0 % 0}
-    catch (err) {
+    catch {
         Rollbar.critical('Could not Run')
     }
+
     res.status(200).send(testData)
 
-    
 })
 
 
