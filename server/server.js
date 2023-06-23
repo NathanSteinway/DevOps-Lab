@@ -16,9 +16,22 @@ app.use(express.json())
 app.use(express.static(`${__dirname}/public`))
 
 app.get('/', (req, res) => {
-    rollbar.log('I am here')
     res.status(200).sendFile((path.join(__dirname, '../public/index.html')))
 })
+
+let testData = ["haha", "fight", "spite", "heehee"]
+
+app.get('/test', (req, res) => {
+
+    try {0 % 0}
+    catch (err) {
+        Rollbar.critical('Could not Run')
+    }
+    res.status(200).send(testData)
+
+    
+})
+
 
 const port = process.env.PORT || 5050
 
