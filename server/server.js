@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
-const path = require('path')
-const Rollbar = require('rollbar')
 const port = process.env.PORT || 5050
+
+const Rollbar = require('rollbar')
 
 let rollbar = new Rollbar({
   accessToken: '691e57b1adf948d6b7823a5b247d4bf9',
@@ -15,12 +15,7 @@ rollbar.log('Greetings, Gamer 🤓')
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    try {
-        iDontExist();
-    }
-    catch (err) {
-        console.error(err)
-    }
+    rollbar.log('I am here')
 })
 
 app.listen(port, () => console.log(`I hate ${port} mixups`))
